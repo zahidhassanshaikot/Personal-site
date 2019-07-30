@@ -22,6 +22,7 @@ Route::get('/manage-about', 'BackEndController@manageAbout')->name('manage-about
 Route::get('/manage-service', 'BackEndController@manageService')->name('manage-service');
 Route::get('/add/new-service', 'BackEndController@addNewService')->name('add-new-service');
 Route::get('/edit-service/{id}', 'BackEndController@editService')->name('edit-service');
+Route::get('/service-details/{id}', 'FrontEndController@serviceDetails')->name('service-details');
 Route::get('/delete-service/{id}', 'BackEndController@deleteService')->name('delete-service');
 Route::post('/save/new-service', 'BackEndController@saveNewService')->name('save-new-service');
 Route::post('/save/update-service', 'BackEndController@updateService')->name('update-service');

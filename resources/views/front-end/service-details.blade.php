@@ -48,36 +48,22 @@
 		<h3 class="heading" style="margin-top: 8%;">Services</h3>
 		<div class="row exp-grids">
 
-			@foreach($obj_service as $service )
-			<div class="col-lg-4 col-md-6">
-				<a href="{{route('service-details',['id'=>$service->id]) }}"><img src="{{ $service->image }}" alt="image" class="img-fluid" /> </a>
-				<div class="exp wthree">	
-					<h4>{{ $service->title }} <span>{{ $service->price }} tk</span></h4>
-					<div class="clearfix"></div>
-					<p>{{ $service->short_description }}</p>
-				</div>
-			</div>
-			@endforeach
 
-<!-- 			<div class="col-lg-4 col-md-6 mt-md-0 mt-4">
-				<img src="{{ asset('front-end') }}/images/exp2.jpg" alt=" " class="img-fluid" />
+
+			<div class="col-lg-12 col-md-12 mt-md-0 mt-12"> 
+				<img src="{{ asset( $obj_service->image) }}" style="width: 100%;height: 450px;" alt="images" class="img-fluid" />
 				<div class="exp wthree">	
-					<h4>App Developer <span>2007 - 2010</span></h4>
+					<h4>{{ $obj_service->title }} <span>{{ $obj_service->price }} tk</span></h4>
 					<div class="clearfix"></div>
-					<p>Nulla viverra pharetra sem, eget pulvinar neque pharetra ac int. lorem ipsum Vestibulum. placerat placerat dolor. Vestibulum at dui nunc.</p>
+					<p>{{ $obj_service->short_description }}</p>
+</br>
+					<p>{{ $obj_service->long_description }}</p>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-6 mt-lg-0 mt-4">
-				<img src="{{ asset('front-end') }}/images/exp3.jpg" alt=" " class="img-fluid" />
-				<div class="exp wthree">	
-					<h4>Web Developer <span>2007 - 2010</span></h4>
-					<div class="clearfix"></div>
-					<p>Nulla viverra pharetra sem, eget pulvinar neque pharetra ac int. lorem ipsum Vestibulum. placerat placerat dolor. Vestibulum at dui nunc.</p>
-				</div>
-			</div> -->
+
 		</div>
 	</div>
-	{{ $obj_service->links() }}
+	
 </section>
 <!-- //experience -->
 

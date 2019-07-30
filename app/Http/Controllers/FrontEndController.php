@@ -48,4 +48,10 @@ class FrontEndController extends Controller
 
         return redirect()->back()->with('message_c','Message successfully Send');
     }
+
+    public function serviceDetails($id){
+        $obj_service=ServiceInfo::find($id); 
+
+        return view('front-end.service-details',['obj_service'=>$obj_service]);
+    }
 }
