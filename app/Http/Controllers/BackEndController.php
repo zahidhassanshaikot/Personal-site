@@ -7,6 +7,7 @@ use App\User;
 use App\AboutMe;
 use App\ContactMe;
 use App\ServiceInfo;
+use App\payment;
 use DB;
 use File;
 use Image;
@@ -231,6 +232,11 @@ class BackEndController extends Controller
     public function viewContact(){
         $obj_contact=ContactMe::orderBy('id','DESC')->paginate(10);
         return view('back-end.contactMsg',['obj_contact'=>$obj_contact]);
+    }
+    public function paymentInfo(){
+        $payments=payment::orderBy('id','DESC')->paginate(10); 
+        // return $payments;   
+        return view('back-end.payment-info',['payments'=>$payments]);
     }
 
 }

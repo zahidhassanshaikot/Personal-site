@@ -31,10 +31,10 @@
         <input type="checkbox" id="drop" />
             <ul class="menu mt-2">
                 <li class="mr-lg-4 mr-3 active"><a href="{{ route('/') }}">Home</a></li>
-                <li class="mr-lg-4 mr-3"><a href="#about">About</a></li>
-                <li class="mr-lg-4 mr-3"><a href="#services">Services</a></li>
+                <li class="mr-lg-4 mr-3"><a href="{{ route('/') }}/#about">About</a></li>
+                <li class="mr-lg-4 mr-3"><a href="{{ route('service') }}">Services</a></li>
             
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="{{ route('/') }}/#contact">Contact</a></li>
             </ul>
         </nav>
 		<!-- //nav -->

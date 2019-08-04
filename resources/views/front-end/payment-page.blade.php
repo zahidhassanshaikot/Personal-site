@@ -45,23 +45,36 @@
 <!-- services -->
 <section class="experience py-5" id="services">
 	<div class="container py-3">
-		<h3 class="heading" style="margin-top: 8%;">Services</h3>
-		<div class="row exp-grids">
+		<h3 class="heading" style="margin-top: 8%;">Payment</h3>
+		<div class="exp-grids">
+
+                        <div class="panel-body">
+                            <div class="position-center">
+                            	 @if(Session::get('message'))
+                   
+                            <div class="alert alert-success" id="message">
+                                <h3 class=" text-center text-success"> {{ Session::get('message') }}</h3>
+                            </div>
+                        	@endif
+                                <form role="form" action="{{ route('save-payment-info')}}" method="POST" enctype="multipart/form-data">
+                                	@csrf
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Transection Id</label>
+                                    <input type="text" class="form-control" name="trxId" id="exampleInputEmail1" placeholder="Transection Id" required> 
+
+                                   	<input type="hidden" value="{{ $service_id }}" class="form-control" name="service_id"> 
+                                </div>
+
+                               
+                       
+                                <button type="submit" class="btn btn-info">Submit</button>
+                            </form>
+                            </div>
+
+                        </div>
 
 
-
-			<div class="col-lg-12 col-md-12 mt-md-0 mt-12"> 
-				<img src="{{ asset( $obj_service->image) }}" style="width: 100%;height: 450px;" alt="images" class="img-fluid" />
-				<div class="exp wthree">	
-					<h4>{{ $obj_service->title }} <span>{{ $obj_service->price }} tk</span></h4>
-					<div class="clearfix"></div>
-					<p>{{ $obj_service->short_description }}</p>
-</br>
-					<p>{{ $obj_service->long_description }}</p>
-
-					<a href="{{ route('payment',['id'=>$obj_service->id]) }}" class="btn btn-info pull-right">Payment</a>
-				</div>
-			</div>
+		
 
 		</div>
 	</div>

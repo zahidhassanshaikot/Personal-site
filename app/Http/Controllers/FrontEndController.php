@@ -7,6 +7,7 @@ use App\User;
 use App\AboutMe;
 use App\ContactMe;
 use App\ServiceInfo;
+use App\payment;
 use DB;
 use File;
 use Image;
@@ -54,4 +55,23 @@ class FrontEndController extends Controller
 
         return view('front-end.service-details',['obj_service'=>$obj_service]);
     }
+    public function payment($id){
+    
+        return view('front-end.payment-page',['service_id'=>$id]);
+    }
+    public function savePaymentInfo(Request $request){
+    $this->validate($request, [
+            'trxId' => 'required'
+          
+        ]);
+    $obj=new payment();    
+    $obj->trxId=$request->trxId;    
+    $obj->service_id=$request->service_id;    
+    $obj->save();    
+
+    return redirect()->back()->with(
+            'message','Successfully payment completed');
+    }
+
+
 }

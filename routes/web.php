@@ -23,6 +23,11 @@ Route::get('/manage-service', 'BackEndController@manageService')->name('manage-s
 Route::get('/add/new-service', 'BackEndController@addNewService')->name('add-new-service');
 Route::get('/edit-service/{id}', 'BackEndController@editService')->name('edit-service');
 Route::get('/service-details/{id}', 'FrontEndController@serviceDetails')->name('service-details');
+
+Route::get('/payment-info', 'BackEndController@paymentInfo')->name('payment-info');
+Route::get('/payment/{id}', 'FrontEndController@payment')->name('payment');
+Route::post('/save-payment-info', 'FrontEndController@savePaymentInfo')->name('save-payment-info');
+
 Route::get('/delete-service/{id}', 'BackEndController@deleteService')->name('delete-service');
 Route::post('/save/new-service', 'BackEndController@saveNewService')->name('save-new-service');
 Route::post('/save/update-service', 'BackEndController@updateService')->name('update-service');

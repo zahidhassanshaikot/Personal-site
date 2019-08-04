@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2019 at 02:27 PM
+-- Generation Time: Aug 04, 2019 at 07:20 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -103,6 +103,28 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payments`
+--
+
+CREATE TABLE `payments` (
+  `id` int(11) NOT NULL,
+  `service_id` int(11) NOT NULL,
+  `trxId` varchar(191) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`id`, `service_id`, `trxId`, `created_at`, `updated_at`) VALUES
+(1, 2, 'ww', '2019-08-03 19:33:24', '2019-08-03 19:33:24'),
+(2, 2, '344f44', '2019-08-04 05:10:54', '2019-08-04 05:10:54');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `service`
 --
 
@@ -123,7 +145,8 @@ CREATE TABLE `service` (
 
 INSERT INTO `service` (`id`, `title`, `price`, `short_description`, `long_description`, `image`, `created_at`, `updated_at`) VALUES
 (1, 'ddd', 4444, 'dfdfd dfdfd fd', 'hihihi', 'images/20190724143233service21.jpg', NULL, '2019-07-24 08:32:33'),
-(2, 'Lawyedd', 3333, 'laravel 5.7', 'ssss', 'images/20190724143346service26.jpg', '2019-07-24 07:41:40', '2019-07-24 08:33:46');
+(2, 'Lawyedd', 3333, 'laravel 5.7', 'ssss', 'images/20190724143346service26.jpg', '2019-07-24 07:41:40', '2019-07-24 08:33:46'),
+(3, 'hhhh', 566, 'C-sharp desktop and webjhjhj', 'sdsd d sd sd f f df df f fd', 'images/20190730141903service24.jpg', '2019-07-30 08:19:04', '2019-07-30 08:19:04');
 
 -- --------------------------------------------------------
 
@@ -151,7 +174,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone_no`, `designation`, `short_description`, `image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'John Watson', 'ss@gmail.com', '6777', 'Web Designer And Developer', 'hjhjhj hjbj hhuhu', 'front-end/images/banner.jpg', NULL, '$2y$10$5DFFkMlgtS/8A7c88X5aKOtTaekeRH.TJ.S6w2HdmSbDLypSvIJJe', NULL, '2019-07-22 07:51:30', '2019-07-23 21:49:05');
+(1, 'John Watson', 'ss@gmail.com', '6777', 'Web Designer And Developer', 'rrrrrrrr rrrr rrrr rrr', 'front-end/images/banner.jpg', NULL, '$2y$10$5DFFkMlgtS/8A7c88X5aKOtTaekeRH.TJ.S6w2HdmSbDLypSvIJJe', NULL, '2019-07-22 07:51:30', '2019-07-30 08:11:07');
 
 --
 -- Indexes for dumped tables
@@ -180,6 +203,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
+
+--
+-- Indexes for table `payments`
+--
+ALTER TABLE `payments`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service`
@@ -215,6 +244,12 @@ ALTER TABLE `contact_me`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `payments`
+--
+ALTER TABLE `payments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `service`
